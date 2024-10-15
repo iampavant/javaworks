@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <title>API </title>
+    <style>
+        .box1{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px;
+           
+            
+        }
+        .box:hover{
+          transition: translateX(-10px) ;
+          box-shadow: 0 8px 16px black;
+          transition: 0.5s;
+        }
+          .box{
+            display: flex;
+            flex-wrap: wrap;
+            width: 250px;
+            height: 250px;
+            border: 2px solid lightcyan;
+            border-radius: 20px;
+            padding: 20px;
+            
+          }
+          .box img{
+            width:auto ;
+            height: 200px;
+          }
+          .box title{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+          }
+          .box rating{
+            flex-direction:row ;
+          }
+       
+         
+    </style>
+</head>
+<body>
+  <a href= "index.html" ><i class="fa-solid fa-arrow-left fa-2xl" style="color: #c8830d;"></i> </a>
+    <div id="calling" class="box1">
+
+    </div>
+    <script>
+     let call = document.getElementById('calling');
+        async function getdata() {
+           const url = await fetch('https://dummyjson.com/products');
+           let data = await url.json();
+           console.log(data);
+           let mydata = data.products;
+          const myfun = mydata.map(a=>{
+            return(
+                `<div class="box">
+                     
+                      <img src="${a.images[0]}">
+                       <h4>${a.title}</h4>
+                       <h4>${a.rating}</h4>
+                       
+                
+                </div>`
+                )
+          }).join("");
+          call.innerHTML = myfun;
+        }
+       getdata();
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banking app</title>
+    <link rel="stylesheet" href="login-css.css">
+   
+</head>
+<body>
+    
+    <div class="bank">
+        <h1 class="bank-head">  WELCOME TO PBI BANK</h1>
+        <h2 class="bank-h2"> LOGIN FOR BANK TRANSCATIONS</h2>
+    </div>
+    <div class="login-container">
+        <h2>Login</h2>
+       
+            <div class="input-group">
+                <label for="username">Username-bank</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password-123</label>
+                <input type="password" id="password" name="password">
+            </div>
+            
+           <a href="bbnk-home.html"> <input type="submit" id="new"></a>
+            
+        
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+
+    <script>
+        let one = document.getElementById('new');
+        one.addEventListener("click" , function(){
+           let user = document.getElementById("username").value;
+           let pass = parseInt(document.getElementById("password").value);
+           const password = 123;
+           const username = "bank";
+              if (user == username && pass == password ){
+                 location.href="home.html"
+              }
+              else{
+                alert("incorrect details")
+              }
+          
+        })
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>
